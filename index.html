@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F6F5F0"><meta name="description" content="只用于学习的日语 AI 助手">
+<link rel="manifest" href="./manifest.webmanifest">
+<title>静学 · 日语学习空间</title>
+<link rel="stylesheet" href="./style.css">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+</head>
+<body>
+<div id="app" class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-symbol">静</div><div><div class="brand-name">静学 <span>Seigaku</span></div><div class="brand-sub">一个没有杂音的学习空间</div></div></div>
+    <div class="sidebar-section">学习工作台</div>
+    <nav class="nav" id="modeNav" aria-label="学习模式">
+      <button class="nav-btn active" data-mode="question"><span>✧</span> 自由提问</button>
+      <button class="nav-btn" data-mode="grammar"><span>文</span> 语法讲解</button>
+      <button class="nav-btn" data-mode="vocabulary"><span>語</span> 词汇与辨析</button>
+      <button class="nav-btn" data-mode="structure"><span>解</span> 句子结构拆解</button>
+      <button class="nav-btn" data-mode="furigana"><span>あ</span> 汉字标注假名</button>
+      <button class="nav-btn" data-mode="translation"><span>訳</span> 翻译与日语思维</button>
+      <button class="nav-btn" data-mode="reading"><span>読</span> 阅读与真题</button>
+      <button class="nav-btn" data-mode="listening"><span>聴</span> 听力与跟读</button>
+      <button class="nav-btn" data-mode="writing"><span>書</span> 写作修改</button>
+      <button class="nav-btn" data-mode="speaking"><span>話</span> 口语表达</button>
+      <button class="nav-btn" data-mode="jlpt"><span>N</span> JLPT N1 / N2</button>
+      <button class="nav-btn" data-mode="academic"><span>研</span> 学术学习</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <button class="secondary-action" id="openCards">▤ &nbsp; 复习卡片 <span id="cardCount" class="tiny-count">0</span></button>
+      <button class="secondary-action" id="openNotes">▦ &nbsp; 学习笔记 <span id="noteCount" class="tiny-count">0</span></button>
+      <div class="boundary">◈ &nbsp; 专注边界已启用<div>只接受学习问题 · 拒绝非学习话题</div></div>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><button id="menuToggle" class="menu-toggle" aria-label="打开菜单">☰</button><div class="breadcrumb">我的学习空间 <span>/</span> <strong id="breadcrumbMode">自由提问</strong></div><div class="top-right"><span class="connection-dot" id="connectionDot"></span><span id="connectionText">检查 AI 连接中</span><button id="settingsBtn" title="连接说明" class="settings-icon">⚙</button></div></header>
+    <div class="workspace">
+      <section class="intro"><div class="eyebrow"><span class="line"></span> FOCUS ON WHAT MATTERS</div><h1 id="mainTitle">今天，想弄懂什么？</h1><p id="mainDesc">在这里，每一个问题都只与学习有关。发来日语句子、截图、作文或录音，我会帮助你认真拆解。</p></section>
+      <div class="tools-row"><div class="tool-pill">🇯🇵 日语学习</div><div class="tool-pill neutral">N1 / N2 / B2</div><div class="tool-pill neutral">中文讲解 · 日文示例</div><div class="focus-pill">◷ <span id="focusTime">25:00</span> <button id="focusBtn">开始专注</button><button id="resetFocus" title="重置计时">↺</button></div></div>
+      <section class="suggestions" id="suggestions"><div class="section-title">从一个具体问题开始 <small>选择一个示例</small></div><div class="suggestion-grid" id="suggestionGrid"></div></section>
+      <section class="conversation" id="conversation" aria-live="polite"><div class="welcome"><div class="welcome-icon">あ</div><b>学习从一个好问题开始。</b><span>选择上方学习任务，或输入你遇到的难题。</span></div></section>
+      <section class="composer-wrap">
+        <div class="attachment-preview" id="attachmentPreview" hidden></div>
+        <div class="composer"><textarea id="prompt" rows="2" placeholder="粘贴日语句子，或问一个具体的学习问题……" aria-label="学习问题"></textarea><div class="composer-bottom"><div class="composer-actions"><label class="composer-tool" for="imageInput" title="上传课本或真题截图">▧ <span>图片</span><input type="file" id="imageInput" accept="image/jpeg,image/png,image/webp" hidden></label><label class="composer-tool" for="audioInput" title="上传日语听力音频">♫ <span>音频</span><input type="file" id="audioInput" accept="audio/*" hidden></label><button class="composer-tool" id="recordBtn" title="录制口语">◉ <span>录音</span></button><button class="composer-tool" id="clearChat" title="清空当前聊天">↺ <span>新对话</span></button></div><button class="send-button" id="sendBtn">发送问题 <span>↗</span></button></div></div>
+        <div class="composer-foot"><span>↵ 发送 · Shift + Enter 换行</span><span>学习用途限定 · AI 的回答可能出错，请核对真题答案</span></div>
+      </section>
+    </div>
+  </main>
+  <div class="backdrop" id="backdrop" hidden></div>
+  <aside class="drawer" id="drawer" hidden><div class="drawer-head"><h2 id="drawerTitle">学习笔记</h2><button id="closeDrawer" aria-label="关闭">×</button></div><div class="drawer-content" id="drawerContent"></div></aside>
+  <div class="toast" id="toast" role="status" hidden></div>
+</div>
+<script src="./app.js" defer></script>
+</body></html>

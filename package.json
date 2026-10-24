@@ -1,0 +1,13 @@
+{
+  "name": "seigaku-vercel-study",
+  "private": true,
+  "version": "0.4.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node local-dev.mjs",
+    "test": "node --test tests/*.test.mjs"
+  }
+}

@@ -1,2 +1,2 @@
-import {status} from '../lib/core.mjs';
+import {api/status} from '../lib/core.mjs';
 export function GET() { return status(); }
